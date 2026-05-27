@@ -1,0 +1,269 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum SubscriptionPlan {
+  free
+  basic
+  pro
+}
+
+enum OrderStatus {
+  pending
+  confirmed
+  assigned
+  picked_up
+  in_transit
+  delivered
+  cancelled
+}
+
+enum BatchStatus {
+  planned
+  in_progress
+  completed
+}
+
+enum PaymentMethod {
+  cod
+  upi
+  credit
+}
+
+enum PaymentStatus {
+  pending
+  completed
+  failed
+}
+
+model Store {
+  id                   String           @id @default(uuid())
+  ownerName            String           @map("owner_name")
+  storeName            String           @map("store_name")
+  phone                String           @unique
+  whatsappVerified     Boolean          @default(false) @map("whatsapp_verified")
+  twilioWhatsappNumber String?          @map("twilio_whatsapp_number")
+  address              String
+  lat                  Decimal?         @db.Decimal(10, 7)
+  lng                  Decimal?         @db.Decimal(10, 7)
+  deliveryRadiusKm     Decimal          @default(3.0) @map("delivery_radius_km")
+  subscriptionPlan     SubscriptionPlan @default(free) @map("subscription_plan")
+  subscriptionExpiresAt DateTime?       @map("subscription_expires_at") @db.Timestamptz()
+  timezone             String           @default("Asia/Kolkata")
+  languagePreference   String           @default("hi") @map("language_preference")
+  createdAt            DateTime         @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt            DateTime         @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  drivers          Driver[]
+  customers        Customer[]
+  orders           Order[]
+  deliveryBatches  DeliveryBatch[]
+  inventory        Inventory[]
+  demandForecasts  DemandForecast[]
+  storeMetrics     StoreMetric[]
+  whatsappSessions WhatsAppSession[]
+  refreshTokens    RefreshToken[]
+}
+
+model Driver {
+  id                  String    @id @default(uuid())
+  storeId             String?   @map("store_id")
+  name                String
+  phone               String    @unique
+  vehicleType         String?   @map("vehicle_type")
+  vehicleCapacityKg   Decimal?  @map("vehicle_capacity_kg") @db.Decimal(5, 2)
+  licenseNumber       String?   @map("license_number")
+  isActive            Boolean   @default(true) @map("is_active")
+  isOnDuty            Boolean   @default(false) @map("is_on_duty")
+  currentLat          Decimal?  @map("current_lat") @db.Decimal(10, 7)
+  currentLng          Decimal?  @map("current_lng") @db.Decimal(10, 7)
+  lastLocationUpdate  DateTime? @map("last_location_update") @db.Timestamptz()
+  fcmToken            String?   @map("fcm_token")
+  createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt           DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  store            Store?           @relation(fields: [storeId], references: [id])
+  orders           Order[]
+  deliveryBatches  DeliveryBatch[]
+  driverLocations  DriverLocation[]
+  refreshTokens    RefreshToken[]
+}
+
+model Customer {
+  id               String    @id @default(uuid())
+  storeId          String    @map("store_id")
+  name             String?
+  phone            String
+  address          String?
+  deliveryLat      Decimal?  @map("delivery_lat") @db.Decimal(10, 7)
+  deliveryLng      Decimal?  @map("delivery_lng") @db.Decimal(10, 7)
+  orderCount       Int       @default(0) @map("order_count")
+  lastOrderAt      DateTime? @map("last_order_at") @db.Timestamptz()
+  notes            String?
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt        DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  store  Store   @relation(fields: [storeId], references: [id])
+  orders Order[]
+}
+
+model Order {
+  id                   String        @id @default(uuid())
+  orderNumber          String        @unique @map("order_number")
+  storeId              String        @map("store_id")
+  customerId           String        @map("customer_id")
+  driverId             String?       @map("driver_id")
+  status               OrderStatus   @default(pending)
+  source               String        @default("whatsapp")
+  whatsappMessageId    String?       @map("whatsapp_message_id")
+  items                Json
+  subtotal             Decimal?      @db.Decimal(10, 2)
+  deliveryFee          Decimal       @default(0) @map("delivery_fee") @db.Decimal(8, 2)
+  discount             Decimal       @default(0) @db.Decimal(8, 2)
+  totalAmount          Decimal?      @map("total_amount") @db.Decimal(10, 2)
+  paymentMethod        PaymentMethod? @map("payment_method")
+  paymentStatus        PaymentStatus @default(pending) @map("payment_status")
+  deliveryAddress      String?       @map("delivery_address")
+  deliveryLat          Decimal?      @map("delivery_lat") @db.Decimal(10, 7)
+  deliveryLng          Decimal?      @map("delivery_lng") @db.Decimal(10, 7)
+  deliveryNotes        String?       @map("delivery_notes")
+  estimatedDeliveryAt  DateTime?     @map("estimated_delivery_at") @db.Timestamptz()
+  deliveredAt          DateTime?     @map("delivered_at") @db.Timestamptz()
+  proofOfDeliveryUrl   String?       @map("proof_of_delivery_url")
+  cancellationReason   String?       @map("cancellation_reason")
+  createdAt            DateTime      @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt            DateTime      @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  store          Store          @relation(fields: [storeId], references: [id])
+  customer       Customer       @relation(fields: [customerId], references: [id])
+  driver         Driver?        @relation(fields: [driverId], references: [id])
+  deliveryBatches OrdersInBatches[]
+}
+
+model DeliveryBatch {
+  id                  String        @id @default(uuid())
+  storeId             String        @map("store_id")
+  driverId            String        @map("driver_id")
+  status              BatchStatus   @default(planned)
+  optimizedRoute      Json?         @map("optimized_route")
+  waypoints           Json?
+  totalDistanceKm     Decimal?      @map("total_distance_km") @db.Decimal(6, 2)
+  estimatedDurationMin Int?         @map("estimated_duration_min")
+  startedAt           DateTime?     @map("started_at") @db.Timestamptz()
+  completedAt         DateTime?     @map("completed_at") @db.Timestamptz()
+  createdAt           DateTime      @default(now()) @map("created_at") @db.Timestamptz()
+
+  store          Store          @relation(fields: [storeId], references: [id])
+  driver         Driver         @relation(fields: [driverId], references: [id])
+  orders         OrdersInBatches[]
+  driverLocations DriverLocation[]
+}
+
+model OrdersInBatches {
+  orderId        String        @map("order_id")
+  batchId        String        @map("batch_id")
+  stopSequence   Int           @map("stop_sequence")
+  createdAt      DateTime      @default(now()) @map("created_at") @db.Timestamptz()
+
+  order          Order         @relation(fields: [orderId], references: [id])
+  batch          DeliveryBatch @relation(fields: [batchId], references: [id])
+
+  @@id([orderId, batchId])
+  @@map("orders_in_batches")
+}
+
+model Inventory {
+  id             String    @id @default(uuid())
+  storeId        String    @map("store_id")
+  sku            String?
+  name           String
+  category       String?
+  unit           String?
+  currentStock   Decimal   @default(0) @map("current_stock") @db.Decimal(10, 3)
+  reorderLevel   Decimal   @default(0) @map("reorder_level") @db.Decimal(10, 3)
+  costPrice      Decimal?  @map("cost_price") @db.Decimal(8, 2)
+  sellingPrice   Decimal?  @map("selling_price") @db.Decimal(8, 2)
+  isActive       Boolean   @default(true) @map("is_active")
+  lastRestockedAt DateTime? @map("last_restocked_at") @db.Timestamptz()
+  updatedAt      DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  store           Store            @relation(fields: [storeId], references: [id])
+  demandForecasts DemandForecast[]
+}
+
+model DemandForecast {
+  id               String    @id @default(uuid())
+  storeId          String    @map("store_id")
+  inventoryId      String    @map("inventory_id")
+  forecastDate     DateTime  @map("forecast_date") @db.Date
+  predictedQuantity Decimal  @map("predicted_quantity") @db.Decimal(10, 3)
+  confidenceScore  Decimal   @map("confidence_score") @db.Decimal(4, 3)
+  reasoning        String?   @db.Text
+  actualQuantity   Decimal?  @map("actual_quantity") @db.Decimal(10, 3)
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz()
+
+  store     Store     @relation(fields: [storeId], references: [id])
+  inventory Inventory @relation(fields: [inventoryId], references: [id])
+}
+
+model DriverLocation {
+  id         String    @id @default(uuid())
+  driverId   String    @map("driver_id")
+  batchId    String?   @map("batch_id")
+  lat        Decimal   @db.Decimal(10, 7)
+  lng        Decimal   @db.Decimal(10, 7)
+  speedKmph  Decimal?  @map("speed_kmph") @db.Decimal(5, 2)
+  heading    Decimal?  @map("heading") @db.Decimal(5, 2)
+  recordedAt DateTime  @default(now()) @map("recorded_at") @db.Timestamptz()
+
+  driver Driver        @relation(fields: [driverId], references: [id])
+  batch  DeliveryBatch? @relation(fields: [batchId], references: [id])
+}
+
+model StoreMetric {
+  id                     String    @id @default(uuid())
+  storeId                String    @map("store_id")
+  metricDate             DateTime  @map("metric_date") @db.Date
+  totalOrders            Int       @default(0) @map("total_orders")
+  deliveredOrders        Int       @default(0) @map("delivered_orders")
+  cancelledOrders        Int       @default(0) @map("cancelled_orders")
+  totalRevenue           Decimal   @default(0) @map("total_revenue") @db.Decimal(12, 2)
+  avgDeliveryTimeMin     Decimal?  @map("avg_delivery_time_min") @db.Decimal(6, 2)
+  onTimeDeliveryRate     Decimal?  @map("on_time_delivery_rate") @db.Decimal(5, 4)
+  customerSatisfactionAvg Decimal? @map("customer_satisfaction_avg") @db.Decimal(3, 2)
+  createdAt              DateTime  @default(now()) @map("created_at") @db.Timestamptz()
+
+  store Store @relation(fields: [storeId], references: [id])
+
+  @@unique([storeId, metricDate])
+  @@map("store_metrics")
+}
+
+model WhatsAppSession {
+  id            String    @id @default(uuid())
+  storeId       String    @map("store_id")
+  customerPhone String    @map("customer_phone")
+  sessionState  String?   @map("session_state")
+  sessionData   Json?
+  expiresAt     DateTime? @map("expires_at") @db.Timestamptz()
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz()
+  updatedAt     DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz()
+
+  store Store @relation(fields: [storeId], references: [id])
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String   @map("user_id")
+  role      String
+  storeId   String?  @map("store_id")
+  driverId  String?  @map("driver_id")
+  expiresAt DateTime @map("expires_at") @db.Timestamptz()
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz()
+}
