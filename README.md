@@ -1,6 +1,6 @@
 <div align="center">
 
-![KiranaFlow Hero](assets/hero.svg)
+![KiranaFlow Hero](/hero.svg)
 
 <br/>
 
@@ -40,7 +40,7 @@ India has ~12 million kirana stores. Most of them take orders over WhatsApp in H
 
 ## Architecture
 
-![Architecture](assets/architecture.svg)
+![Architecture](/architecture.svg)
 
 The backend is a single Express server. It handles REST for the mobile apps, WebSocket rooms for real-time updates, Bull queues for background AI jobs, and a Twilio webhook for WhatsApp. Every service — Postgres, Redis, API, pgAdmin — runs in Docker.
 
@@ -48,7 +48,7 @@ The backend is a single Express server. It handles REST for the mobile apps, Web
 
 ## Tech Stack
 
-![Tech Stack](assets/tech-stack.svg)
+![Tech Stack](/tech-stack.svg)
 
 ### Backend — `backend/`
 
@@ -101,7 +101,7 @@ The backend is a single Express server. It handles REST for the mobile apps, Web
 
 ### WhatsApp Ordering Bot
 
-![WhatsApp Flow](assets/whatsapp-flow.svg)
+![WhatsApp Flow](/whatsapp-flow.svg)
 
 Customers text the store's WhatsApp number in Hindi, English, or Hinglish. Claude (`claude-sonnet-4-20250514`) parses the natural language message into a structured `{items, qty, unit}` array. The session state machine has 5 states: `IDLE → GREETING → COLLECTING → CONFIRMING → DONE`. Sessions auto-expire after 30 minutes. Twilio signature verification runs in production. The Claude service has a full mock fallback so local dev works without an Anthropic key.
 
@@ -120,7 +120,7 @@ The WhatsApp controller handles inbound Twilio webhooks at `POST /api/webhook/wh
 
 ### AI Demand Forecasting + Insights
 
-![AI Pipeline](assets/ai-pipeline.svg)
+![AI Pipeline](/ai-pipeline.svg)
 
 A Bull cron job fires at `23:00` every night. It pulls the last 90 days of delivered orders, aggregates by SKU, sends to `generateDemandForecasts()` with current inventory levels, and writes per-item `DemandForecast` rows. The response schema:
 
@@ -150,7 +150,7 @@ Four Claude service functions:
 
 ### Real-Time GPS Tracking
 
-![Real-Time Tracking](assets/realtime-tracking.svg)
+![Real-Time Tracking](/realtime-tracking.svg)
 
 Three Socket.io rooms run simultaneously:
 
@@ -174,7 +174,7 @@ Falls back to a mock optimizer in dev (no Google key needed).
 
 ## Data Model
 
-![Data Model](assets/data-model.svg)
+![Data Model](/data-model.svg)
 
 **13 Prisma models. Key design decisions:**
 
@@ -198,13 +198,13 @@ Falls back to a mock optimizer in dev (no Google key needed).
 
 ## API Routes
 
-![API Routes](assets/api-routes.svg)
+![API Routes](/api-routes.svg)
 
 ---
 
 ## Quick Start
 
-![Quick Start](assets/quickstart.svg)
+![Quick Start](/quickstart.svg)
 
 ### Docker (one command)
 
