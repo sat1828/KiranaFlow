@@ -1,0 +1,90 @@
+<svg width="860" height="320" viewBox="0 0 860 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#071a0f"/>
+    </linearGradient>
+    <filter id="g1"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="860" height="320" fill="url(#bg)" rx="16"/>
+  <text x="430" y="26" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle" letter-spacing="3" font-weight="600">QUICK START  ·  DOCKER COMPOSE</text>
+
+  <!-- Terminal window -->
+  <rect x="30" y="44" width="500" height="260" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  <!-- Terminal header -->
+  <rect x="30" y="44" width="500" height="32" rx="12" fill="#161b22"/>
+  <rect x="30" y="60" width="500" height="16" fill="#161b22"/>
+  <circle cx="54" cy="60" r="6" fill="#ff5f57"/>
+  <circle cx="74" cy="60" r="6" fill="#ffbd2e"/>
+  <circle cx="94" cy="60" r="6" fill="#28c840"/>
+  <text x="230" y="64" font-family="monospace" font-size="11" fill="#8b949e" text-anchor="middle">bash — KiranaFlow</text>
+
+  <!-- Terminal content lines with staggered fade-in -->
+  <text x="50" y="98" font-family="monospace" font-size="11" fill="#3fb950">$</text>
+  <text x="62" y="98" font-family="monospace" font-size="11" fill="#c9d1d9">git clone https://github.com/sat1828/KiranaFlow.git</text>
+
+  <text x="50" y="116" font-family="monospace" font-size="11" fill="#3fb950">$</text>
+  <text x="62" y="116" font-family="monospace" font-size="11" fill="#c9d1d9">cd KiranaFlow</text>
+
+  <text x="50" y="134" font-family="monospace" font-size="11" fill="#3fb950">$</text>
+  <text x="62" y="134" font-family="monospace" font-size="11" fill="#c9d1d9">docker-compose up</text>
+
+  <text x="50" y="156" font-family="monospace" font-size="10" fill="#8b949e">Creating kiranaflow-db     ... </text>
+  <text x="310" y="156" font-family="monospace" font-size="10" fill="#3fb950">done</text>
+  <text x="50" y="170" font-family="monospace" font-size="10" fill="#8b949e">Creating kiranaflow-redis  ... </text>
+  <text x="310" y="170" font-family="monospace" font-size="10" fill="#3fb950">done</text>
+  <text x="50" y="184" font-family="monospace" font-size="10" fill="#8b949e">Creating kiranaflow-api    ... </text>
+  <text x="310" y="184" font-family="monospace" font-size="10" fill="#3fb950">done</text>
+  <text x="50" y="198" font-family="monospace" font-size="10" fill="#8b949e">Creating kiranaflow-pgadmin... </text>
+  <text x="310" y="198" font-family="monospace" font-size="10" fill="#3fb950">done</text>
+
+  <text x="50" y="218" font-family="monospace" font-size="10" fill="#58a6ff">api  | Running migrations...</text>
+  <text x="50" y="232" font-family="monospace" font-size="10" fill="#58a6ff">api  | Migrations applied ✓</text>
+
+  <text x="50" y="254" font-family="monospace" font-size="10" fill="#c9d1d9">api  | ╔═══════════════════════════════════╗</text>
+  <text x="50" y="268" font-family="monospace" font-size="10" fill="#c9d1d9">api  | ║   KiranaFlow API Server v1.0    ║</text>
+  <text x="50" y="282" font-family="monospace" font-size="10" fill="#3fb950">api  | ║   Port: 3000  ·  Ready  ✓       ║</text>
+  <text x="50" y="296" font-family="monospace" font-size="10" fill="#c9d1d9">api  | ╚═══════════════════════════════════╝</text>
+
+  <!-- Blinking cursor -->
+  <rect x="50" y="300" width="7" height="12" fill="#c9d1d9">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Services panel on right -->
+  <rect x="555" y="44" width="280" height="260" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  <rect x="555" y="44" width="280" height="32" rx="12" fill="#161b22"/>
+  <rect x="555" y="60" width="280" height="16" fill="#161b22"/>
+  <text x="695" y="64" font-family="monospace" font-size="11" fill="#8b949e" text-anchor="middle">Services</text>
+
+  <!-- Service rows -->
+  <rect x="572" y="90" width="246" height="40" rx="8" fill="#0a1628" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="582" y="106" font-family="monospace" font-size="9" fill="#58a6ff" font-weight="700">🐋 API Server</text>
+  <text x="582" y="120" font-family="monospace" font-size="8" fill="#8b949e">localhost:3000  · Node 20</text>
+  <circle cx="804" cy="108" r="5" fill="#3fb950">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <rect x="572" y="138" width="246" height="40" rx="8" fill="#0a1628" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="582" y="154" font-family="monospace" font-size="9" fill="#3fb950" font-weight="700">🐘 PostgreSQL 16</text>
+  <text x="582" y="168" font-family="monospace" font-size="8" fill="#8b949e">localhost:5432  · alpine</text>
+  <circle cx="804" cy="156" r="5" fill="#3fb950">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" begin="0.4s"/>
+  </circle>
+
+  <rect x="572" y="186" width="246" height="40" rx="8" fill="#0a1628" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="582" y="202" font-family="monospace" font-size="9" fill="#f87171" font-weight="700">⚡ Redis 7</text>
+  <text x="582" y="216" font-family="monospace" font-size="8" fill="#8b949e">localhost:6379  · alpine</text>
+  <circle cx="804" cy="204" r="5" fill="#3fb950">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" begin="0.8s"/>
+  </circle>
+
+  <rect x="572" y="234" width="246" height="40" rx="8" fill="#0a1628" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="582" y="250" font-family="monospace" font-size="9" fill="#fbbf24" font-weight="700">🔧 pgAdmin 4</text>
+  <text x="582" y="264" font-family="monospace" font-size="8" fill="#8b949e">localhost:5050  · admin/admin</text>
+  <circle cx="804" cy="252" r="5" fill="#3fb950">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+  </circle>
+
+  <!-- Health check label -->
+  <text x="695" y="296" font-family="monospace" font-size="8" fill="#475569" text-anchor="middle">GET /health → {status:"ok", uptime, version:"1.0.0"}</text>
+</svg>

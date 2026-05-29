@@ -1,0 +1,97 @@
+<svg width="860" height="400" viewBox="0 0 860 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+  <rect width="860" height="400" fill="url(#bg)" rx="16"/>
+  <text x="430" y="26" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle" letter-spacing="3" font-weight="600">REST API  ·  10 ROUTE MODULES  ·  BASE: /api/</text>
+
+  <!-- Col 1 -->
+  <rect x="20" y="44" width="260" height="340" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <rect x="20" y="44" width="260" height="30" rx="10" fill="#161b22"/>
+  <text x="150" y="64" font-family="monospace" font-size="10" fill="#8b949e" text-anchor="middle" font-weight="700">AUTH  +  STORE</text>
+
+  <text x="36" y="94" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="76" y="94" font-family="monospace" font-size="9" fill="#c9d1d9">/auth/send-otp</text>
+  <text x="36" y="110" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="76" y="110" font-family="monospace" font-size="9" fill="#c9d1d9">/auth/verify-otp</text>
+  <text x="36" y="126" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="76" y="126" font-family="monospace" font-size="9" fill="#c9d1d9">/auth/refresh</text>
+  <text x="36" y="142" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="76" y="142" font-family="monospace" font-size="9" fill="#c9d1d9">/auth/logout</text>
+  <line x1="36" y1="152" x2="264" y2="152" stroke="#30363d" stroke-width="1"/>
+  <text x="36" y="168" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="76" y="168" font-family="monospace" font-size="9" fill="#c9d1d9">/store/dashboard</text>
+  <text x="36" y="184" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="76" y="184" font-family="monospace" font-size="9" fill="#c9d1d9">/store/profile</text>
+  <text x="36" y="200" font-family="monospace" font-size="9" fill="#58a6ff">PUT </text><text x="76" y="200" font-family="monospace" font-size="9" fill="#c9d1d9">/store/profile</text>
+  <text x="36" y="216" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="76" y="216" font-family="monospace" font-size="9" fill="#c9d1d9">/store/analytics</text>
+  <line x1="36" y1="226" x2="264" y2="226" stroke="#30363d" stroke-width="1"/>
+  <text x="36" y="242" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="76" y="242" font-family="monospace" font-size="9" fill="#c9d1d9">/orders</text>
+  <text x="36" y="258" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="76" y="258" font-family="monospace" font-size="9" fill="#c9d1d9">/orders</text>
+  <text x="36" y="274" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="76" y="274" font-family="monospace" font-size="9" fill="#c9d1d9">/orders/:id</text>
+  <text x="36" y="290" font-family="monospace" font-size="9" fill="#a5d6ff">PATCH</text><text x="76" y="290" font-family="monospace" font-size="9" fill="#c9d1d9">/orders/:id/status</text>
+  <text x="36" y="306" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="76" y="306" font-family="monospace" font-size="9" fill="#c9d1d9">/orders/:id/assign</text>
+  <line x1="36" y1="316" x2="264" y2="316" stroke="#30363d" stroke-width="1"/>
+  <text x="36" y="332" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="76" y="332" font-family="monospace" font-size="9" fill="#c9d1d9">/drivers</text>
+  <text x="36" y="348" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="76" y="348" font-family="monospace" font-size="9" fill="#c9d1d9">/drivers</text>
+  <text x="36" y="364" font-family="monospace" font-size="9" fill="#a5d6ff">PATCH</text><text x="76" y="364" font-family="monospace" font-size="9" fill="#c9d1d9">/drivers/:id/duty</text>
+  <text x="36" y="380" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="76" y="380" font-family="monospace" font-size="9" fill="#c9d1d9">/drivers/:id/location</text>
+
+  <!-- Col 2 -->
+  <rect x="300" y="44" width="260" height="340" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <rect x="300" y="44" width="260" height="30" rx="10" fill="#161b22"/>
+  <text x="430" y="64" font-family="monospace" font-size="10" fill="#8b949e" text-anchor="middle" font-weight="700">ROUTES  +  INVENTORY  +  AI</text>
+
+  <text x="316" y="94" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="356" y="94" font-family="monospace" font-size="9" fill="#c9d1d9">/routes/batches</text>
+  <text x="316" y="110" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="356" y="110" font-family="monospace" font-size="9" fill="#c9d1d9">/routes/optimize</text>
+  <text x="316" y="126" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="356" y="126" font-family="monospace" font-size="9" fill="#c9d1d9">/routes/batches</text>
+  <text x="316" y="142" font-family="monospace" font-size="9" fill="#a5d6ff">PATCH</text><text x="356" y="142" font-family="monospace" font-size="9" fill="#c9d1d9">/routes/batches/:id/start</text>
+  <line x1="316" y1="152" x2="544" y2="152" stroke="#30363d" stroke-width="1"/>
+  <text x="316" y="168" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="356" y="168" font-family="monospace" font-size="9" fill="#c9d1d9">/inventory</text>
+  <text x="316" y="184" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="356" y="184" font-family="monospace" font-size="9" fill="#c9d1d9">/inventory</text>
+  <text x="316" y="200" font-family="monospace" font-size="9" fill="#58a6ff">PUT </text><text x="356" y="200" font-family="monospace" font-size="9" fill="#c9d1d9">/inventory/:id</text>
+  <text x="316" y="216" font-family="monospace" font-size="9" fill="#f87171">DEL </text><text x="356" y="216" font-family="monospace" font-size="9" fill="#c9d1d9">/inventory/:id</text>
+  <line x1="316" y1="226" x2="544" y2="226" stroke="#30363d" stroke-width="1"/>
+  <text x="316" y="242" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="356" y="242" font-family="monospace" font-size="9" fill="#c4b5fd">/ai/forecast</text>
+  <text x="316" y="258" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="356" y="258" font-family="monospace" font-size="9" fill="#c4b5fd">/ai/forecast/run</text>
+  <text x="316" y="274" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="356" y="274" font-family="monospace" font-size="9" fill="#c4b5fd">/ai/insights</text>
+  <line x1="316" y1="284" x2="544" y2="284" stroke="#30363d" stroke-width="1"/>
+  <text x="316" y="300" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="356" y="300" font-family="monospace" font-size="9" fill="#c9d1d9">/reports/daily</text>
+  <text x="316" y="316" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="356" y="316" font-family="monospace" font-size="9" fill="#c9d1d9">/reports/weekly</text>
+  <line x1="316" y1="326" x2="544" y2="326" stroke="#30363d" stroke-width="1"/>
+  <text x="316" y="342" font-family="monospace" font-size="9" fill="#fbbf24">POST</text><text x="356" y="342" font-family="monospace" font-size="9" fill="#25D366">/webhook/whatsapp</text>
+  <text x="316" y="358" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="356" y="358" font-family="monospace" font-size="9" fill="#fbbf24">/track/:orderId</text>
+  <text x="316" y="374" font-family="monospace" font-size="9" fill="#3fb950">GET </text><text x="356" y="374" font-family="monospace" font-size="9" fill="#3fb950">/health</text>
+
+  <!-- Col 3: Middleware + Auth info -->
+  <rect x="580" y="44" width="260" height="340" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <rect x="580" y="44" width="260" height="30" rx="10" fill="#161b22"/>
+  <text x="710" y="64" font-family="monospace" font-size="10" fill="#8b949e" text-anchor="middle" font-weight="700">MIDDLEWARE  +  SECURITY</text>
+
+  <text x="596" y="90" font-family="monospace" font-size="9" fill="#fbbf24" font-weight="700">Request Pipeline:</text>
+  <text x="596" y="106" font-family="monospace" font-size="8" fill="#8b949e">helmet()        → security headers</text>
+  <text x="596" y="120" font-family="monospace" font-size="8" fill="#8b949e">cors()          → origin whitelist</text>
+  <text x="596" y="134" font-family="monospace" font-size="8" fill="#8b949e">compression()   → gzip</text>
+  <text x="596" y="148" font-family="monospace" font-size="8" fill="#8b949e">cookieParser()  → cookies</text>
+  <text x="596" y="162" font-family="monospace" font-size="8" fill="#8b949e">morgan()        → HTTP logs</text>
+  <text x="596" y="176" font-family="monospace" font-size="8" fill="#8b949e">apiLimiter()    → rate limit</text>
+  <text x="596" y="190" font-family="monospace" font-size="8" fill="#8b949e">authMiddleware()→ JWT verify</text>
+  <text x="596" y="204" font-family="monospace" font-size="8" fill="#8b949e">errorHandler()  → 4xx/5xx</text>
+
+  <line x1="596" y1="214" x2="824" y2="214" stroke="#30363d" stroke-width="1"/>
+  <text x="596" y="230" font-family="monospace" font-size="9" fill="#58a6ff" font-weight="700">JWT Payload:</text>
+  <text x="596" y="246" font-family="monospace" font-size="8" fill="#8b949e">{ userId, role, storeId,</text>
+  <text x="596" y="260" font-family="monospace" font-size="8" fill="#8b949e">  driverId, phone }</text>
+  <text x="596" y="274" font-family="monospace" font-size="8" fill="#8b949e">Access:  15m expiry</text>
+  <text x="596" y="288" font-family="monospace" font-size="8" fill="#8b949e">Refresh: 7d expiry</text>
+  <text x="596" y="302" font-family="monospace" font-size="8" fill="#8b949e">Storage: SecureStore (mobile)</text>
+
+  <line x1="596" y1="312" x2="824" y2="312" stroke="#30363d" stroke-width="1"/>
+  <text x="596" y="328" font-family="monospace" font-size="9" fill="#3fb950" font-weight="700">Public routes (no auth):</text>
+  <text x="596" y="344" font-family="monospace" font-size="8" fill="#8b949e">POST /auth/send-otp</text>
+  <text x="596" y="358" font-family="monospace" font-size="8" fill="#8b949e">POST /auth/verify-otp</text>
+  <text x="596" y="372" font-family="monospace" font-size="8" fill="#8b949e">GET  /track/:orderId</text>
+  <text x="596" y="386" font-family="monospace" font-size="8" fill="#8b949e">GET  /health</text>
+
+  <!-- Scanning animation -->
+  <rect x="20" y="44" width="820" height="2" fill="#3b82f6" opacity="0">
+    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,340;0,0" dur="3s" repeatCount="indefinite"/>
+  </rect>
+</svg>

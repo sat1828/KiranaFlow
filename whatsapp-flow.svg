@@ -1,0 +1,111 @@
+<svg width="860" height="340" viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#0a2210"/>
+    </linearGradient>
+  </defs>
+  <rect width="860" height="340" fill="url(#bg)" rx="16"/>
+  <text x="430" y="28" font-family="Arial" font-size="13" fill="#25D366" text-anchor="middle" font-weight="700" letter-spacing="2">WHATSAPP ORDER FLOW  ·  5-STATE SESSION MACHINE</text>
+
+  <!-- State boxes -->
+  <!-- IDLE -->
+  <rect x="30" y="55" width="110" height="60" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="85" y="80" font-family="monospace" font-size="11" fill="#64748b" text-anchor="middle" font-weight="700">IDLE</text>
+  <text x="85" y="97" font-family="monospace" font-size="8" fill="#475569" text-anchor="middle">awaiting msg</text>
+  <circle cx="85" cy="68" r="4" fill="#64748b"/>
+
+  <!-- GREETING -->
+  <rect x="185" y="55" width="120" height="60" rx="12" fill="#1e293b" stroke="#25D366" stroke-width="1.5"/>
+  <text x="245" y="80" font-family="monospace" font-size="11" fill="#25D366" text-anchor="middle" font-weight="700">GREETING</text>
+  <text x="245" y="97" font-family="monospace" font-size="8" fill="#475569" text-anchor="middle">lang detect</text>
+  <circle cx="245" cy="68" r="4" fill="#25D366"/>
+
+  <!-- COLLECTING -->
+  <rect x="355" y="55" width="130" height="60" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="420" y="80" font-family="monospace" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="700">COLLECTING</text>
+  <text x="420" y="97" font-family="monospace" font-size="8" fill="#475569" text-anchor="middle">Claude parse</text>
+  <circle cx="420" cy="68" r="4" fill="#3b82f6"/>
+
+  <!-- CONFIRMING -->
+  <rect x="535" y="55" width="130" height="60" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="600" y="80" font-family="monospace" font-size="11" fill="#fbbf24" text-anchor="middle" font-weight="700">CONFIRMING</text>
+  <text x="600" y="97" font-family="monospace" font-size="8" fill="#475569" text-anchor="middle">show summary</text>
+  <circle cx="600" cy="68" r="4" fill="#f59e0b"/>
+
+  <!-- DONE -->
+  <rect x="715" y="55" width="110" height="60" rx="12" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+  <text x="770" y="80" font-family="monospace" font-size="11" fill="#34d399" text-anchor="middle" font-weight="700">DONE</text>
+  <text x="770" y="97" font-family="monospace" font-size="8" fill="#6ee7b7" text-anchor="middle">order created</text>
+  <circle cx="770" cy="68" r="4" fill="#10b981"/>
+
+  <!-- Arrows between states -->
+  <line x1="142" y1="85" x2="183" y2="85" stroke="#25D366" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="307" y1="85" x2="353" y2="85" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr2)"/>
+  <line x1="487" y1="85" x2="533" y2="85" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr3)"/>
+  <line x1="667" y1="85" x2="713" y2="85" stroke="#10b981" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#25D366"/></marker>
+    <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/></marker>
+    <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#f59e0b"/></marker>
+    <marker id="arr4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#10b981"/></marker>
+    <marker id="arr5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/></marker>
+  </defs>
+
+  <!-- Animated traveller dot across states -->
+  <circle r="5" fill="#25D366" filter="url(#glow2)">
+    <animateMotion dur="6s" repeatCount="indefinite"
+      path="M 85,85 L 245,85 L 420,85 L 600,85 L 770,85"/>
+    <animate attributeName="fill" values="#25D366;#3b82f6;#3b82f6;#f59e0b;#10b981;#25D366" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="5;7;5;7;5;5" dur="6s" repeatCount="indefinite"/>
+  </circle>
+
+  <defs>
+    <filter id="glow2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- Timeout arrow (back to IDLE) -->
+  <path d="M 770,117 Q 770,140 430,140 Q 90,140 85,117" stroke="#ef4444" stroke-width="1" fill="none" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#arr5)"/>
+  <text x="430" y="155" font-family="monospace" font-size="8" fill="#ef4444" text-anchor="middle" opacity="0.7">session timeout 30 min → back to IDLE</text>
+
+  <!-- Chat simulation below -->
+  <text x="30" y="185" font-family="Arial" font-size="11" fill="#64748b" font-weight="700">LIVE CONVERSATION EXAMPLE</text>
+
+  <!-- User bubble 1 -->
+  <rect x="430" y="198" width="400" height="32" rx="10" fill="#dcf8c6" opacity="0.95"/>
+  <text x="620" y="213" font-family="Arial" font-size="10" fill="#111" text-anchor="middle">bhaiya 2 kg atta aur ek litre tel chahiye</text>
+  <text x="822" y="224" font-family="Arial" font-size="8" fill="#128c7e" text-anchor="end">9:38 ✓✓</text>
+  <!-- Fade-in animation -->
+  <rect x="430" y="198" width="400" height="32" rx="10" fill="#0a2210" opacity="0.01">
+    <animate attributeName="opacity" values="0.95;0;0;0;0;0;0;0;0;0;0.95" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Bot bubble 1 -->
+  <rect x="30" y="238" width="380" height="56" rx="10" fill="#fff" opacity="0.95"/>
+  <text x="44" y="256" font-family="Arial" font-size="9" fill="#111">📋 Aapka Order:</text>
+  <text x="44" y="270" font-family="Arial" font-size="9" fill="#333">  • 2 kg Wheat Flour (Atta)</text>
+  <text x="44" y="283" font-family="Arial" font-size="9" fill="#333">  • 1 L Cooking Oil</text>
+  <text x="180" y="283" font-family="Arial" font-size="9" fill="#128c7e">Confirm? 1-Yes  2-Edit  3-Cancel</text>
+  <text x="400" y="288" font-family="Arial" font-size="8" fill="#94a3b8" text-anchor="end">9:38</text>
+
+  <!-- User bubble 2 -->
+  <rect x="560" y="238" width="270" height="32" rx="10" fill="#dcf8c6" opacity="0.95"/>
+  <text x="695" y="258" font-family="Arial" font-size="11" fill="#111" text-anchor="middle" font-weight="700">1</text>
+  <text x="822" y="264" font-family="Arial" font-size="8" fill="#128c7e" text-anchor="end">9:39 ✓✓</text>
+
+  <!-- Bot confirmation bubble -->
+  <rect x="30" y="302" width="480" height="30" rx="10" fill="#fff" opacity="0.95"/>
+  <text x="44" y="321" font-family="Arial" font-size="9" fill="#111">✅ Order Confirmed! <tspan fill="#128c7e" font-weight="700">KF-2025-84729</tspan> · ₹210 COD · ETA 18 min</text>
+  <text x="502" y="325" font-family="Arial" font-size="8" fill="#94a3b8" text-anchor="end">9:39</text>
+
+  <!-- Typing indicator animation -->
+  <circle cx="560" cy="270" r="4" fill="#94a3b8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite" begin="0s"/>
+  </circle>
+  <circle cx="572" cy="270" r="4" fill="#94a3b8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite" begin="0.4s"/>
+  </circle>
+  <circle cx="584" cy="270" r="4" fill="#94a3b8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite" begin="0.8s"/>
+  </circle>
+</svg>

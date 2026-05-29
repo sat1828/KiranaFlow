@@ -1,0 +1,98 @@
+<svg width="860" height="220" viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="220" fill="#0f172a" rx="16"/>
+  <text x="430" y="28" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle" letter-spacing="3" font-weight="600">TECH STACK</text>
+
+  <!-- Row 1 -->
+  <!-- Node.js -->
+  <rect x="30" y="44" width="130" height="64" rx="12" fill="#1e293b" stroke="#339933" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="0s"/>
+  </rect>
+  <text x="95" y="68" font-family="Arial" font-size="22" text-anchor="middle">🟩</text>
+  <text x="95" y="87" font-family="Arial" font-size="10" fill="#4ade80" text-anchor="middle" font-weight="700">Node.js 20</text>
+  <text x="95" y="100" font-family="Arial" font-size="8" fill="#475569" text-anchor="middle">Express 4.19</text>
+
+  <!-- PostgreSQL -->
+  <rect x="175" y="44" width="130" height="64" rx="12" fill="#1e293b" stroke="#336791" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="0.3s"/>
+  </rect>
+  <text x="240" y="68" font-family="Arial" font-size="22" text-anchor="middle">🐘</text>
+  <text x="240" y="87" font-family="Arial" font-size="10" fill="#60a5fa" text-anchor="middle" font-weight="700">PostgreSQL 16</text>
+  <text x="240" y="100" font-family="Arial" font-size="8" fill="#475569" text-anchor="middle">Prisma ORM · 13 models</text>
+
+  <!-- Redis -->
+  <rect x="320" y="44" width="130" height="64" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="0.6s"/>
+  </rect>
+  <text x="385" y="68" font-family="Arial" font-size="22" text-anchor="middle">⚡</text>
+  <text x="385" y="87" font-family="Arial" font-size="10" fill="#f87171" text-anchor="middle" font-weight="700">Redis 7</text>
+  <text x="385" y="100" font-family="Arial" font-size="8" fill="#475569" text-anchor="middle">Bull · Rate limiting</text>
+
+  <!-- Socket.io -->
+  <rect x="465" y="44" width="130" height="64" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="0.9s"/>
+  </rect>
+  <text x="530" y="68" font-family="Arial" font-size="22" text-anchor="middle">🔌</text>
+  <text x="530" y="87" font-family="Arial" font-size="10" fill="#34d399" text-anchor="middle" font-weight="700">Socket.io 4</text>
+  <text x="530" y="100" font-family="Arial" font-size="8" fill="#475569" text-anchor="middle">Real-time · 3 room types</text>
+
+  <!-- Claude AI -->
+  <rect x="610" y="44" width="130" height="64" rx="12" fill="#2e1065" stroke="#8b5cf6" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="1.2s"/>
+  </rect>
+  <text x="675" y="68" font-family="Arial" font-size="22" text-anchor="middle">🤖</text>
+  <text x="675" y="87" font-family="Arial" font-size="10" fill="#c4b5fd" text-anchor="middle" font-weight="700">Claude Sonnet 4</text>
+  <text x="675" y="100" font-family="Arial" font-size="8" fill="#7c3aed" text-anchor="middle">Anthropic API</text>
+
+  <!-- Row 2 -->
+  <!-- React Native -->
+  <rect x="30" y="128" width="130" height="64" rx="12" fill="#1e293b" stroke="#0ea5e9" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+  </rect>
+  <text x="95" y="152" font-family="Arial" font-size="22" text-anchor="middle">📱</text>
+  <text x="95" y="171" font-family="Arial" font-size="10" fill="#38bdf8" text-anchor="middle" font-weight="700">React Native</text>
+  <text x="95" y="184" font-family="Arial" font-size="8" fill="#475569" text-anchor="middle">Expo 51 · iOS + Android</text>
+
+  <!-- Next.js -->
+  <rect x="175" y="128" width="130" height="64" rx="12" fill="#1e293b" stroke="#f8fafc" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="1.8s"/>
+  </rect>
+  <text x="240" y="152" font-family="Arial" font-size="22" text-anchor="middle">▲</text>
+  <text x="240" y="171" font-family="Arial" font-size="10" fill="#f8fafc" text-anchor="middle" font-weight="700">Next.js 14</text>
+  <text x="240" y="184" font-family="Arial" font-size="8" fill="#475569" text-anchor="middle">Tracking PWA · App Router</text>
+
+  <!-- Twilio -->
+  <rect x="320" y="128" width="130" height="64" rx="12" fill="#1e293b" stroke="#25D366" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="2.1s"/>
+  </rect>
+  <text x="385" y="152" font-family="Arial" font-size="22" text-anchor="middle">💬</text>
+  <text x="385" y="171" font-family="Arial" font-size="10" fill="#25D366" text-anchor="middle" font-weight="700">Twilio</text>
+  <text x="385" y="184" font-family="Arial" font-size="8" fill="#475569" text-anchor="middle">WhatsApp Business</text>
+
+  <!-- Zustand + TanStack -->
+  <rect x="465" y="128" width="130" height="64" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="2.4s"/>
+  </rect>
+  <text x="530" y="152" font-family="Arial" font-size="22" text-anchor="middle">🐻</text>
+  <text x="530" y="171" font-family="Arial" font-size="10" fill="#fbbf24" text-anchor="middle" font-weight="700">Zustand + TanStack</text>
+  <text x="530" y="184" font-family="Arial" font-size="8" fill="#475569" text-anchor="middle">State · Server state</text>
+
+  <!-- Docker -->
+  <rect x="610" y="128" width="130" height="64" rx="12" fill="#1e3a5f" stroke="#2496ED" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite" begin="2.7s"/>
+  </rect>
+  <text x="675" y="152" font-family="Arial" font-size="22" text-anchor="middle">🐋</text>
+  <text x="675" y="171" font-family="Arial" font-size="10" fill="#60a5fa" text-anchor="middle" font-weight="700">Docker Compose</text>
+  <text x="675" y="184" font-family="Arial" font-size="8" fill="#475569" text-anchor="middle">4 services · one command</text>
+
+  <!-- Scanning line animation -->
+  <rect x="0" y="0" width="860" height="4" fill="url(#scan)" rx="2" opacity="0.4">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,216;0,0" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <defs>
+    <linearGradient id="scan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+</svg>

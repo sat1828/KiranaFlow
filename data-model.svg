@@ -1,0 +1,149 @@
+<svg width="860" height="480" viewBox="0 0 860 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <marker id="fk" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#334155"/>
+    </marker>
+    <marker id="fk2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/>
+    </marker>
+    <filter id="glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="860" height="480" fill="url(#bg)" rx="16"/>
+  <text x="430" y="26" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle" letter-spacing="3" font-weight="600">DATA MODEL  ·  13 PRISMA MODELS</text>
+
+  <!-- STORE (center-top) -->
+  <rect x="320" y="42" width="220" height="170" rx="12" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="320" y="42" width="220" height="28" rx="10" fill="#1d4ed8"/>
+  <text x="430" y="61" font-family="monospace" font-size="11" fill="white" text-anchor="middle" font-weight="700">Store</text>
+  <text x="336" y="82" font-family="monospace" font-size="8" fill="#93c5fd">id: UUID (PK)</text>
+  <text x="336" y="95" font-family="monospace" font-size="8" fill="#94a3b8">ownerName, storeName</text>
+  <text x="336" y="108" font-family="monospace" font-size="8" fill="#94a3b8">phone: String @unique</text>
+  <text x="336" y="121" font-family="monospace" font-size="8" fill="#94a3b8">lat, lng: Decimal(10,7)</text>
+  <text x="336" y="134" font-family="monospace" font-size="8" fill="#94a3b8">deliveryRadiusKm: 3.0</text>
+  <text x="336" y="147" font-family="monospace" font-size="8" fill="#fbbf24">subscriptionPlan: enum</text>
+  <text x="336" y="160" font-family="monospace" font-size="8" fill="#94a3b8">languagePreference: "hi"</text>
+  <text x="336" y="173" font-family="monospace" font-size="8" fill="#475569">timezone: "Asia/Kolkata"</text>
+  <!-- pulse animation on Store -->
+  <rect x="320" y="42" width="220" height="170" rx="12" fill="none" stroke="#3b82f6" stroke-width="1">
+    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="1;4;1" dur="3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ORDER -->
+  <rect x="580" y="42" width="210" height="200" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="580" y="42" width="210" height="28" rx="10" fill="#065f46"/>
+  <text x="685" y="61" font-family="monospace" font-size="11" fill="white" text-anchor="middle" font-weight="700">Order</text>
+  <text x="596" y="82" font-family="monospace" font-size="8" fill="#6ee7b7">id: UUID (PK)</text>
+  <text x="596" y="95" font-family="monospace" font-size="8" fill="#34d399">orderNumber: KF-YYYY-NNNNN</text>
+  <text x="596" y="108" font-family="monospace" font-size="8" fill="#94a3b8">storeId, customerId, driverId</text>
+  <text x="596" y="121" font-family="monospace" font-size="8" fill="#fbbf24">status: OrderStatus (7 states)</text>
+  <text x="596" y="134" font-family="monospace" font-size="8" fill="#94a3b8">source: "whatsapp"|"manual"</text>
+  <text x="596" y="147" font-family="monospace" font-size="8" fill="#94a3b8">items: Json</text>
+  <text x="596" y="160" font-family="monospace" font-size="8" fill="#94a3b8">totalAmount: Decimal(10,2)</text>
+  <text x="596" y="173" font-family="monospace" font-size="8" fill="#fbbf24">paymentMethod: cod|upi|credit</text>
+  <text x="596" y="186" font-family="monospace" font-size="8" fill="#94a3b8">deliveryLat/Lng: Decimal(10,7)</text>
+  <text x="596" y="199" font-family="monospace" font-size="8" fill="#94a3b8">proofOfDeliveryUrl: String?</text>
+  <text x="596" y="215" font-family="monospace" font-size="8" fill="#475569">deliveryNotes, cancellationReason</text>
+
+  <!-- DRIVER -->
+  <rect x="580" y="265" width="210" height="165" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <rect x="580" y="265" width="210" height="28" rx="10" fill="#7c2d12"/>
+  <text x="685" y="284" font-family="monospace" font-size="11" fill="white" text-anchor="middle" font-weight="700">Driver</text>
+  <text x="596" y="305" font-family="monospace" font-size="8" fill="#fdba74">id: UUID (PK)</text>
+  <text x="596" y="318" font-family="monospace" font-size="8" fill="#94a3b8">storeId: FK → Store</text>
+  <text x="596" y="331" font-family="monospace" font-size="8" fill="#94a3b8">name, phone @unique</text>
+  <text x="596" y="344" font-family="monospace" font-size="8" fill="#94a3b8">vehicleType, vehicleCapacityKg</text>
+  <text x="596" y="357" font-family="monospace" font-size="8" fill="#34d399">isOnDuty: Boolean</text>
+  <text x="596" y="370" font-family="monospace" font-size="8" fill="#94a3b8">currentLat/Lng: Decimal(10,7)</text>
+  <text x="596" y="383" font-family="monospace" font-size="8" fill="#475569">fcmToken: String?</text>
+  <text x="596" y="396" font-family="monospace" font-size="8" fill="#475569">lastLocationUpdate: Timestamptz</text>
+  <text x="596" y="412" font-family="monospace" font-size="8" fill="#475569">licenseNumber: String?</text>
+
+  <!-- INVENTORY -->
+  <rect x="70" y="42" width="210" height="170" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="70" y="42" width="210" height="28" rx="10" fill="#4c1d95"/>
+  <text x="175" y="61" font-family="monospace" font-size="11" fill="white" text-anchor="middle" font-weight="700">Inventory</text>
+  <text x="86" y="82" font-family="monospace" font-size="8" fill="#c4b5fd">id: UUID (PK)</text>
+  <text x="86" y="95" font-family="monospace" font-size="8" fill="#94a3b8">storeId: FK → Store</text>
+  <text x="86" y="108" font-family="monospace" font-size="8" fill="#94a3b8">sku, name, category, unit</text>
+  <text x="86" y="121" font-family="monospace" font-size="8" fill="#fbbf24">currentStock: Decimal(10,3)</text>
+  <text x="86" y="134" font-family="monospace" font-size="8" fill="#fbbf24">reorderLevel: Decimal(10,3)</text>
+  <text x="86" y="147" font-family="monospace" font-size="8" fill="#94a3b8">costPrice: Decimal(8,2)</text>
+  <text x="86" y="160" font-family="monospace" font-size="8" fill="#94a3b8">sellingPrice: Decimal(8,2)</text>
+  <text x="86" y="173" font-family="monospace" font-size="8" fill="#475569">lastRestockedAt: Timestamptz</text>
+
+  <!-- DEMAND FORECAST -->
+  <rect x="70" y="240" width="210" height="155" rx="12" fill="#1e293b" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="70" y="240" width="210" height="28" rx="10" fill="#3b0764"/>
+  <text x="175" y="259" font-family="monospace" font-size="11" fill="white" text-anchor="middle" font-weight="700">DemandForecast</text>
+  <text x="86" y="280" font-family="monospace" font-size="8" fill="#c4b5fd">id: UUID (PK)</text>
+  <text x="86" y="293" font-family="monospace" font-size="8" fill="#94a3b8">storeId, inventoryId: FK</text>
+  <text x="86" y="306" font-family="monospace" font-size="8" fill="#34d399">predictedQuantity: Decimal(10,3)</text>
+  <text x="86" y="319" font-family="monospace" font-size="8" fill="#34d399">confidenceScore: Decimal(4,3)</text>
+  <text x="86" y="332" font-family="monospace" font-size="8" fill="#94a3b8">reasoning: Text</text>
+  <text x="86" y="345" font-family="monospace" font-size="8" fill="#475569">actualQuantity: Decimal(10,3)?</text>
+  <text x="86" y="358" font-family="monospace" font-size="8" fill="#fbbf24">forecastDate: Date</text>
+  <text x="86" y="371" font-family="monospace" font-size="8" fill="#475569">createdAt: Timestamptz</text>
+
+  <!-- DELIVERY BATCH -->
+  <rect x="320" y="240" width="220" height="155" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="320" y="240" width="220" height="28" rx="10" fill="#78350f"/>
+  <text x="430" y="259" font-family="monospace" font-size="11" fill="white" text-anchor="middle" font-weight="700">DeliveryBatch</text>
+  <text x="336" y="280" font-family="monospace" font-size="8" fill="#fcd34d">id: UUID (PK)</text>
+  <text x="336" y="293" font-family="monospace" font-size="8" fill="#94a3b8">storeId, driverId: FK</text>
+  <text x="336" y="306" font-family="monospace" font-size="8" fill="#fbbf24">status: planned|in_progress|done</text>
+  <text x="336" y="319" font-family="monospace" font-size="8" fill="#94a3b8">optimizedRoute: Json</text>
+  <text x="336" y="332" font-family="monospace" font-size="8" fill="#94a3b8">waypoints: Json</text>
+  <text x="336" y="345" font-family="monospace" font-size="8" fill="#94a3b8">totalDistanceKm: Decimal(6,2)</text>
+  <text x="336" y="358" font-family="monospace" font-size="8" fill="#94a3b8">estimatedDurationMin: Int</text>
+  <text x="336" y="371" font-family="monospace" font-size="8" fill="#475569">startedAt, completedAt: Tz</text>
+
+  <!-- WHATSAPP SESSION -->
+  <rect x="70" y="416" width="210" height="48" rx="10" fill="#1e293b" stroke="#25D366" stroke-width="1"/>
+  <text x="175" y="435" font-family="monospace" font-size="9" fill="#25D366" text-anchor="middle" font-weight="700">WhatsAppSession</text>
+  <text x="175" y="452" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">state: IDLE|GREETING|COLLECTING|CONFIRMING|DONE · expires 30m</text>
+
+  <!-- STORE METRICS -->
+  <rect x="320" y="416" width="220" height="48" rx="10" fill="#1e293b" stroke="#06b6d4" stroke-width="1"/>
+  <text x="430" y="435" font-family="monospace" font-size="9" fill="#22d3ee" text-anchor="middle" font-weight="700">StoreMetric</text>
+  <text x="430" y="452" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">daily rollup · revenue · onTimeRate · avgDeliveryMin</text>
+
+  <!-- DRIVER LOCATION -->
+  <rect x="580" y="450" width="210" height="20" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="685" y="463" font-family="monospace" font-size="7" fill="#64748b" text-anchor="middle">DriverLocation · lat/lng/speed/heading · per batch</text>
+
+  <!-- REFRESH TOKEN -->
+  <rect x="70" y="416" width="0" height="0" rx="0"/><!-- placeholder -->
+
+  <!-- Relationship lines: Store → Order -->
+  <line x1="540" y1="127" x2="578" y2="127" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#fk2)"/>
+  <!-- Store → Driver -->
+  <path d="M 540,160 Q 560,320 578,320" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4,3" fill="none" marker-end="url(#fk)"/>
+  <!-- Store → Inventory -->
+  <line x1="318" y1="127" x2="282" y2="127" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#fk)"/>
+  <!-- Inventory → DemandForecast -->
+  <line x1="175" y1="214" x2="175" y2="238" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#fk)"/>
+  <!-- Store → DeliveryBatch -->
+  <line x1="430" y1="214" x2="430" y2="238" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#fk)"/>
+  <!-- Order → OrdersInBatches (mini label) -->
+  <line x1="580" y1="220" x2="542" y2="280" stroke="#334155" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#fk)"/>
+  <text x="548" y="258" font-family="monospace" font-size="7" fill="#475569">OrdersInBatches</text>
+  <text x="548" y="268" font-family="monospace" font-size="7" fill="#475569">join table</text>
+  <!-- Driver → DeliveryBatch -->
+  <line x1="580" y1="320" x2="542" y2="360" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#fk)"/>
+
+  <!-- Enum legend -->
+  <rect x="720" y="416" width="126" height="48" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="783" y="432" font-family="monospace" font-size="7" fill="#64748b" text-anchor="middle" font-weight="700">ENUMS</text>
+  <text x="783" y="444" font-family="monospace" font-size="7" fill="#fbbf24" text-anchor="middle">OrderStatus · 7 states</text>
+  <text x="783" y="455" font-family="monospace" font-size="7" fill="#a78bfa" text-anchor="middle">free|basic|pro · cod|upi|credit</text>
+
+  <!-- Animated scan line -->
+  <line x1="30" y1="0" x2="830" y2="0" stroke="#3b82f6" stroke-width="1" opacity="0.4">
+    <animateTransform attributeName="transform" type="translate" values="0,40;0,480;0,40" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.4;0" dur="6s" repeatCount="indefinite"/>
+  </line>
+</svg>
